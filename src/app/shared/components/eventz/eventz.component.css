@@ -1,0 +1,36 @@
+
+ .card {
+
+  border: 2px solid black;
+
+}
+
+
+
+.checkbox{
+  margin-left: 3%;
+}
+
+.label{
+  margin-left: 2%;
+  font-weight: 500;
+}
+/*
+.label:checked{
+  color: ;
+} */
+
+
+.card-con{
+  position: relative;
+}
+
+.close{
+  position: absolute;
+  right:0
+}
+
+
+.close:hover{
+  scale: 1.2;
+}

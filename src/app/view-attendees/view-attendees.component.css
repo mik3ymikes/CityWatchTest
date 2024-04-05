@@ -1,0 +1,65 @@
+
+.main{
+  height: 100vh;
+  background-color: rgba(0,0,0,0.1);
+}
+
+
+
+/* styling paper */
+#paper {
+  width: 60%;
+  /* width: 600px; */
+  height: 100vh;
+  position: relative;
+  margin: 2% auto;
+  padding-top: 40px;
+  padding-bottom: 40px;
+  background-color: white;
+  box-shadow: 0px 0px 5px 0px #888;
+}
+
+/* styling red vertical line */
+#paper::before {
+  content: '';
+  width: 2px;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 40px;
+  background-color: rgba(255,0,0,0.6);
+}
+
+/* styling blue horizontal lines */
+#pattern {
+  height: 100%;
+  background-image: repeating-linear-gradient(white 0%, white 4%, rgb(2, 158, 158) 5%);
+
+}
+
+/* styling text content */
+#content {
+  /* padding-top: 10%; */
+  padding-top: 2px;
+  padding-left: 14%;
+
+  /* padding-right: 16px; */
+  /* line-height: 160%; */
+  font-family: 'Dancing Script', cursive;
+  font-size: 1rem;
+  font-weight: 550;
+
+}
+
+li{
+  font-family: 'Dancing Script', cursive;
+  font-size: 1.6rem;
+}
+
+h2{
+  font-style: italic;
+  font-weight: 700;
+  text-decoration: underline;
+}
+
+

@@ -1,0 +1,67 @@
+<nav class="navbar navbar-expand-xl bg-body-tertiary p-3" data-bs-theme="dark">
+  <div class="container-fluid">
+    <div class="navbar-brand webTitle fs-2"> NiteWatch
+    <img class="owl" src="https://images.unsplash.com/photo-1555677284-6a6f971638e0?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8b3dsJTIwY2FydG9vbnxlbnwwfHwwfHx8MA%3D%3D" alt="" width="45" height="45">
+    </div>
+    <button [ngClass]="{ xSym: isNavbarActive}"
+    (click)="toggleNav()"  class="navbar-toggler"  type="button" data-bs-toggle="collapse" data-bs-target="#extra" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <!-- <span  class="navbar-toggler-icon"></span> -->
+      <span  class="top-bar"></span>
+      <span  class=" middle-bar"></span>
+      <span  class=" bottom-bar"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="extra">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a routerLink="/home" routerLinkActive="active"
+           [routerLinkActiveOptions]="{exact: true}" class="nav-link" aria-current="page">Home 🏠</a>
+        </li>
+        <li class="nav-item">
+          <a routerLink="/statistics" routerLinkActive="active"
+          [routerLinkActiveOptions]="{exact: true}"class="nav-link">Statistics 🚨</a>
+        </li>
+        <li class="nav-item">
+          <a routerLink="/events" routerLinkActive="active"
+          [routerLinkActiveOptions]="{exact: true}" class="nav-link" >Events 🍿</a>
+        </li>
+        <li class="nav-item">
+          <a routerLink="/alerts" routerLinkActive="active"
+          [routerLinkActiveOptions]="{exact: true}" class="nav-link" > Alerts ⚠️</a>
+        </li>
+        @if (isLoggedIn()) {
+          <li  class="nav-link greeting" >
+              Welcome Neighbor, {{currentUser?.username}}! 🙋‍♂️
+          </li>
+        }
+          <!-- @if (isLoading) {
+            <li  class="nav-item nav-link" style="text-align: center;">
+                 <app-loading-spinner ></app-loading-spinner>
+            </li>
+           } -->
+      </ul>
+
+      <div class="navbar-end">
+
+        <div class="nav-item">
+          @if (!isLoggedIn()) {
+            <a routerLink="/signup"><button  class="me-3 btn btn-secondary " ><strong>Sign up</strong></button> </a>
+          }
+
+
+           @if (isLoggedIn()){
+             <a  (click)="logout()" ><button class="btn btn-secondary"> <strong>Logout</strong> </button> </a>
+           } @else {
+            <a routerLink="/login"><button class="btn btn-secondary"> <strong>Login</strong> </button> </a>
+           }
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</nav>
+
+
+
+
+

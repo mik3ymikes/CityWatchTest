@@ -1,0 +1,154 @@
+<div class=" con container-fluid d-flex align-items-center justify-content-around ">
+  <h1 class="mt-4 mb-5 ">See Alerts Now 🚓</h1>
+  <div class="d-flex gap-1">
+    <input class="" placeholder="Search for an Event" type="text" [(ngModel)]="searchText" #filter >
+    @if(searchText==""){
+      <button (click)="filterResults(searchText)" class="btn btn-dark">🔎</button>
+    } @else {
+      <button (click)="filterResults(filter.value)" class="btn btn-dark">🔎</button>
+      <button (click)="back()" class="btn btn-dark">❌</button>
+    }
+  </div>
+</div>
+
+  <div class="d-flex container-fluid justify-content-center mb-5">
+    <button (click)="addAlert()" class="btn btn-dark">Add an Alert</button>
+  </div>
+
+
+
+
+
+<div class="container main-con">
+  <div class="row justify-content-center" >
+
+
+    <div class="container main-con">
+      <div class="row justify-content-center" >
+        <!-- @for(alert of alerts; track alert.id){ -->
+      @for(alert of filteredAlerts; track alert.id){
+        <div class="col-auto">
+          <app-alert [alert]="alert"/>
+          </div>
+        }
+
+
+
+        <div class="pagination-controls d-flex gap-2 ">
+        <button class="btn btn-dark" (click)="previousPage()" [disabled]="currentPage===1">Previous</button>
+        <button class="btn btn-dark" (click)="nextPage()" [disabled]="currentPage===totalPages || totalPages === 0">Next</button>
+      </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--
+    @for(alert of paginatedItems; track alert.id){
+      <div class="col-auto ">
+      <app-alert [alert]="alert"/>
+    </div>
+    }
+   </div>
+
+
+
+
+   <nav aria-label="Page navigation">
+     <ul class="pagination">
+    <li class="page-item" [class.disabled]="currentPage === 1">
+      <a class="page-link" (click)="onPageChange(currentPage - 1)" aria-label="Previous">
+        <span aria-hidden="true">&laquo;</span>
+      </a>
+    </li>
+
+    @for(page of pages(); track page){
+      <li class="page-item"  [class.active]="page === currentPage">
+        <a class="page-link" (click)="onPageChange(page)">{{ page }}</a>
+      </li>
+    }
+
+
+    <li class="page-item" [class.disabled]="currentPage === totalPages()">
+      <a class="page-link" (click)="onPageChange(currentPage + 1)" aria-label="Next">
+        <span aria-hidden="true">&raquo;</span>
+      </a>
+    </li>
+  </ul>
+</nav>
+</div> -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- @for(alert of paginatedItems; track alert.id){
+  <div class="col-lg-4">
+  <app-alert [alert]="alert"/>
+</div>
+} -->
+
+
+
+
+
+
+<!--
+backup if needed
+<div class="container">
+  <div class="side-column"></div>
+   <div class="main-column">
+    @for(alert of alerts; track alert.id){
+      <app-alert [alert]="alert"/>
+    }
+   </div>
+  <div class="side-column"></div>
+</div> -->

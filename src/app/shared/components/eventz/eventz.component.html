@@ -1,0 +1,71 @@
+<div class="card mb-4 bg-dark text-white card-con" style="width: 22rem ;">
+  <div class="close">
+    @if(event.user?.id == currentUser?.id){
+      <button class="btn btn-dark btn-sm" (click)="editPage()"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
+        <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
+        <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5z"/>
+      </svg></button>
+    }
+  </div>
+  <img [src]="event.cover_image_url || 'https://source.unsplash.com/random?'+ event.title"  class="card-img-top" alt="" style="max-height: 200px;">
+  <div class="card-body">
+    <h5 class="card-title">{{event.title}}</h5>
+    <!-- <hr>
+    <input type="checkbox" name="attending" id="attending">
+    <label for="">Attending</label> -->
+  </div>
+  <ul class="list-group list-group-flush">
+      <li class="list-group-item"> <strong>Details - </strong> {{event.content}}</li>
+    <li class="list-group-item"> <strong>Event Dates - </strong> {{event.start_date_time | date}} - {{event.end_date_time | date}}
+    <li class="list-group-item"> <strong>Event Time - </strong> {{ getTime(event.start_date_time) }} - {{ getTime(event.end_date_time) }} </li>
+    <li class="list-group-item"> <strong>Created at - </strong> {{event.created_at | date}}</li>
+    <li class="list-group-item"> <strong>Created by - </strong> {{event.user?.username}}</li>
+    @if(event.user?.id !== currentUser?.id){
+    <li class="list-group-item"> <strong>Join Event - </strong>
+      <!-- @if(hasJoined){
+        <button (click)="toggleJoinEvent()">❌</button>
+      }
+      @else {
+        <button (click)="toggleJoinEvent()">✔️</button>
+      } -->
+      <input  class="checkbox" type="checkbox" name="attending" id="attending" (click)="toggleJoinEvent()">
+      <label class="label" for="label">Attending</label>
+    </li>
+  }
+  <!-- @if(event.user?.id == currentUser?.id){
+    <li class="list-group-item"> <strong>Modify Event -  </strong>
+      <button class="btn btn-dark btn-sm">Edit</button>
+  } -->
+  </ul>
+  <div class="card-body d-flex justify-content-center gap-3">
+    <a class="card-link btn btn-secondary btn-sm" (click)="viewAttendees()">View Attendees  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-people-fill" viewBox="0 0 16 16">
+      <path d="M7 14s-1 0-1-1 1-4 5-4 5 3 5 4-1 1-1 1zm4-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6m-5.784 6A2.24 2.24 0 0 1 5 13c0-1.355.68-2.75 1.936-3.72A6.3 6.3 0 0 0 5 9c-4 0-5 3-5 4s1 1 1 1zM4.5 8a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5"/>
+    </svg></a>
+    <a (click)="toComments()"  class="card-lin btn btn-secondary btn-sm"> View Comments 💬</a>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--
+<div class="event-con">
+
+      <p> {{event.title}}</p>
+      <p>{{event.start_date_time | date}} - {{event.end_date_time | date}}</p>
+
+      <p>{{event.content}}</p>
+
+
+      <p>{{event.created_at | date}}</p>
+    </div> -->

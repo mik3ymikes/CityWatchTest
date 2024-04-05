@@ -1,0 +1,21 @@
+.row{
+  margin-top: 1%;
+}
+
+
+
+
+.pagination{
+  margin-top: 1%;
+}
+
+
+.con{
+  width: 90%;
+}
+
+
+button:disabled{
+  /* background-color: #ff0303; */
+  cursor: not-allowed;
+}
